@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<users>
+    <doctor>
+        <name>
+            <first>Amir</first>
+            <last>Fallah</last>
+        </name>
+        <address>Szegeti 8B</address>
+        <age>26</age>
+        <phoneNumber>234564256</phoneNumber>
+        <doctorID>222</doctorID>
+    </doctor>
+</users>

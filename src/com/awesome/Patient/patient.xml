@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<users>
+    <patient>
+        <name>
+            <first>Natcha</first>
+            <last>Uthaug</last>
+        </name>
+        <age>30</age>
+        <phoneNumber>90113044</phoneNumber>
+        <address>Fanahammaren 24J</address>
+    </patient>
+    <patient>
+        <name>
+            <first/>
+            <last>Fallah</last>
+        </name>
+        <age>33</age>
+        <phoneNumber>2345</phoneNumber>
+        <address>hshs</address>
+    </patient>
+</users>
