@@ -92,42 +92,6 @@ public class Diary {
         return patientDiary;
     }
 
-    public static void main(String[] args) {
-
-        ArrayList<Diary> patientDiary = new ArrayList<>();
-        Diary diary;
-        try{
-            DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-            Document document = documentBuilder.parse(new FileInputStream("src/com/awesome/Patient/patientDiary.xml"));
-
-            // It gets the list of all Entries
-            NodeList root = document.getElementsByTagName("entry");
-
-            for(int j=0; j<root.getLength(); j++){
-                Node node1 = root.item(j);           // get all the child nodes from this node (will get a node list)
-                if(node1.getNodeType() == Node.ELEMENT_NODE){
-                    Element element1 = (Element) node1; // Here just casting the node into Element, because node does not have
-
-                    String date = (element1.getElementsByTagName("date").item(0).getTextContent());
-                    String message = (element1.getElementsByTagName("message").item(0).getTextContent());
-
-                    //print out patient
-                    System.out.println(j+1);
-                    System.out.println("Entry date " + date);
-                    System.out.println("    " + message);
-                    System.out.println(node1.getNodeType());
-
-                    diary = new Diary(date,message);
-                    patientDiary.add(diary);
-                }
-            }
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-
-    }
-
     public static Diary writeDiary(){
         String askDate;
         String diaryEntry;

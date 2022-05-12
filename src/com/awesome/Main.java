@@ -69,7 +69,18 @@ public class Main {
 
             System.out.println("Do you want to Exit?\n 0 = Exit, 1 = Go to log-in page");
             int exit = -1;
-            exit = scan.nextInt();
+            try {
+                 exit = scan.nextInt();
+                scan.nextLine();
+                if (exit < 0 || exit > 1) {
+                    System.out.println("Invalid option! \nPlease try again");
+                }
+
+            } catch (InputMismatchException e) {
+                System.out.println("Not a valid option");
+                scan.nextLine();
+            }
+
 
             if (exit == 0) {
                 MainMenu = false;

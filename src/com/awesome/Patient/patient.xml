@@ -2,20 +2,20 @@
 <users>
     <patient>
         <name>
-            <first>Natcha</first>
-            <last>Uthaug</last>
+            <first>Zsolt</first>
+            <last>Horvath</last>
         </name>
-        <age>30</age>
-        <phoneNumber>90113044</phoneNumber>
-        <address>Fanahammaren 24J</address>
+        <age>80</age>
+        <phoneNumber>2345</phoneNumber>
+        <address>Harkany 15</address>
     </patient>
     <patient>
         <name>
-            <first/>
-            <last>Fallah</last>
+            <first>Mari</first>
+            <last>Lenninger</last>
         </name>
-        <age>33</age>
-        <phoneNumber>2345</phoneNumber>
-        <address>hshs</address>
+        <age>60</age>
+        <phoneNumber>2333</phoneNumber>
+        <address>Alkotmany 32</address>
     </patient>
 </users>

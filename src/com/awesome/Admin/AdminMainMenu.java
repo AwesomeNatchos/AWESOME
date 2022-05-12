@@ -16,16 +16,16 @@ public class AdminMainMenu {
         private static Scanner scan = new Scanner(System.in);
 
         public static void MainMenu() {
-            // remeber to save the patient list into the arraylist from xml file firts
-            //Patient
-            //ArrayList<Patient> allPatiens = new ArrayList<>();
 
+            //Patients
             String xmlPatientpath = "src/com/awesome/Patient/patient.xml";
+            ArrayList<Patient> allPatiens = new ArrayList<>();
+            allPatiens = XmlPatient.readPatientXml("src/com/awesome/Patient/patient.xml");
 
-            ArrayList<Patient> allPatiens = XmlPatient.readPatientXml("src/com/awesome/Patient/patient.xml");
             //Doctor
-            ArrayList<Doctor> allDoctors = new ArrayList<>();
             String xmlDoctorPath = "src/com/awesome/Doctor/doctor.xml";
+            ArrayList<Doctor> allDoctors = new ArrayList<>();
+            allDoctors = XmlDoctor.readDoctortXml(xmlDoctorPath);
 
             boolean mainMenu = true;
             int choice = -1;
@@ -42,6 +42,7 @@ public class AdminMainMenu {
                 System.out.println("5) Add Doctor");
                 System.out.println("6) Read Doctors");
                 System.out.println("7) Edit Doctor ");
+                System.out.println("8) Delete Doctor ");
 
                 System.out.println("0) Exit");
                 System.out.println("Please enter your option: ");
@@ -62,7 +63,6 @@ public class AdminMainMenu {
                     case 1:
                         System.out.println("See patient list");
                         XmlPatient.readPatientXml(xmlPatientpath);    //can get a array list of patients back
-
                         break;
                     case 2:
                         System.out.println("Add patient ");
@@ -93,6 +93,10 @@ public class AdminMainMenu {
                     case 7:
                         System.out.println("Edit Doctor");
                         Doctor.modifyDoctor(allDoctors);
+                        break;
+                    case 8:
+                        System.out.println("Delete doctor");
+                        Doctor.removeDoctor(allDoctors);
                         break;
                     case 0:
                         System.out.println("Goodbye!");

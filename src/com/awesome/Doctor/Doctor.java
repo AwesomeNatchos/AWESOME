@@ -7,6 +7,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import javax.sound.midi.Soundbank;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.FileInputStream;
@@ -32,6 +33,7 @@ public class Doctor extends Users {
         this("Gabòr", "Horvath", "Szegeti 12, 7624 Pècs", 35, 123, 4588623);
     }
 
+
     public static Doctor creat_new_Doctor(){
         String firstName, lastName, address;
         int age, doctorID, phoneNumber;
@@ -55,24 +57,57 @@ public class Doctor extends Users {
     }
 
 
-    //Modify Patient
+    //Modify Doctor
     public static void modifyDoctor(ArrayList<Doctor> allDoctors){
-        Doctor doctor = new Doctor();
-        String file = "src/com/awesome/Doctor/doctor.xml";
-
-
-        doctor = findDoctorIn(allDoctors, file);
+        Doctor doctor = findDoctorIn(allDoctors);
         int age = readBirthyear();
         int phoneNumber = readPhoneNumber();
         int doctorID = readDoctorID();
         System.out.println("Please enter address of Doctor");
         String address = scan.nextLine();
 
-
+        System.out.println("You are now creating a new doctor object");
         // creat a new Doctor and update it to the user
-        allDoctors.set(allDoctors.indexOf(doctor), new Doctor(doctor.getFirstName(),doctor.getLastName(), address, age, phoneNumber, doctorID ));
+        allDoctors.set(allDoctors.indexOf(doctor), new Doctor(doctor.getFirstName(), doctor.getLastName(), address, age, phoneNumber, doctorID));
 
     }
+
+    public static void removeDoctor(ArrayList<Doctor>allDoctors){
+        Doctor doctor;
+        boolean remove = true;
+        while(remove){
+            doctor = findDoctorIn(allDoctors);
+            System.out.println("Doctor " + doctor.getFirstName() + " " + doctor.getLastName() + " was found.\nIs this the correct patient?");
+            System.out.println("1 = yes 2 = no");
+            int reply = -1;
+            try{
+                reply = scan.nextInt();
+                scan.nextLine();
+                if(reply < 1 || reply > 2){
+                    System.out.println("Invalid option!");
+                }
+
+            } catch(InputMismatchException e){
+                System.out.println("Please enter an integer");
+                scan.nextLine();
+            }
+
+            if(reply == 1){
+                allDoctors.remove(doctor);
+                System.out.println("Doctor was successfully deleted");
+                remove = false;
+            }
+            else if(reply == 2){
+                continue;
+            }
+            else{
+                System.out.println("invalid option");
+                continue;
+            }
+            reply = -1;
+        }
+    }
+
 
     private static int readDoctorID(){
         int doctorID = 0;
@@ -116,39 +151,20 @@ public class Doctor extends Users {
         } return phoneNumber;
     }
 
-    private static Doctor findDoctorIn(ArrayList<Doctor>allDoctors, String filepath){
+    private static Doctor findDoctorIn(ArrayList<Doctor>allDoctors){
         Doctor doctor = new Doctor();
         String name = "";
         while(name.isEmpty()){
             System.out.println("Enter last name of Doctor: ");
             name = scan.nextLine();
-            try {
-                DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-                DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-                Document document = documentBuilder.parse(new FileInputStream(filepath));
-
-                NodeList root = document.getElementsByTagName("doctor");
-                for(int i = 0; i<root.getLength(); i++){
-                    Node node = root.item(i);
-                    if(node.getNodeType() == Node.ELEMENT_NODE){
-                        Element element = (Element) node; // Here just casting the node into Element, because node does not have
-
-                        String firstname = ((Element) element.getElementsByTagName("name").item(0)).getElementsByTagName("first").item(0).getTextContent();
-                        String lastname = ((Element) element.getElementsByTagName("name").item(0)).getElementsByTagName("last").item(0).getTextContent();
-
-                        if(firstname.equals(name)){
-                            System.out.println("You fount the right doctor");
-                        }
-                    }
+            for(Doctor doctors : allDoctors){
+                if(doctors.getLastName().equals(name)){
+                    return doctor;
                 }
-            } catch(Exception e){
-                e.printStackTrace();
             }
-
-
+            name = "";
         }
         return doctor;
-
     }
 
     public int getDoctorID() {

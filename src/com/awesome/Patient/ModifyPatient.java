@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class ModifyPatient {
 
     private static Scanner scan = new Scanner(System.in);
+
     public static void modifyPatient(ArrayList<Patient>allpatients){
         Patient patient = findPatientIn(allpatients);
         int age = readBirthyear();
@@ -52,28 +53,36 @@ public class ModifyPatient {
             System.out.println("Enter last name of patient: ");
             name = scan.nextLine();
             for(Patient userElement : allPatients){
-                if(userElement.getFirstName().equals(name)){
+                if(userElement.getLastName().equals(name)){
                     return userElement;
                 }
             }
             name = "";
-
         }
         return patient;
     }
 
     public static void removePatient(ArrayList<Patient>allPatients){
-        allPatients.remove(findPatientIn(allPatients));
-    }
-
-    public static void main(String[] args) {
-
-        //Finds the name WORKS
-        ArrayList<Patient> testPatientList = new ArrayList<>();
-        Patient patient = new Patient();
-        testPatientList.add(patient);
-
-        patient = findPatientIn(testPatientList);
-        System.out.println(patient.getLastName());
+        int reply;
+        Patient patient;
+        boolean remove = true;
+        while(remove){
+            patient = findPatientIn(allPatients);
+            System.out.println("Patient " + patient.getFirstName() + " " + patient.getLastName() + " was found.\nIs this the correct patient?");
+            System.out.println("1 = yes 2 = no");
+            reply = scan.nextInt();
+            if(reply == 1){
+                allPatients.remove(patient);
+                System.out.println("Patient successfully deleted");
+                remove = false;
+            }
+            else if(reply == 2){
+                continue;
+            }
+            else{
+                System.out.println("invalid option");
+                continue;
+            }
+        }
     }
 }
