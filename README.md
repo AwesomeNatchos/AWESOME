@@ -1,11 +1,11 @@
-# AWESOME
+# AWESOME Healthcare Applicationi
 
-Healthcare Application
+The program is is a framework from patient and doctor communication with and Admin/secretary user.
+It will show a log-in menu, and the user interface is created for Patient, Doctor and Admin/secretary perspective
 
-
-The program is is a framework from patient and doctor communication.
 User types:
-    Patient: Can write and read diary.
+    Patient:
+               Can write and read diary.
              Doctor can see what the patients write
              log-in userName: patient
                     password: patient
@@ -13,6 +13,16 @@ User types:
             Read patient diary
             Write patient report
             Read patient report
-    Admin: This user can also be a secretary
-           Creat, edit, delete and see all patients and doctors.
+            Log-in userName: doctor
+                   password: doctor
+    Admin: 
+           Patients: Creat, edit and delete
+           Doctors: Creat, edit and delete
+           Can not read patient report or patient diary.
+           Log-in userName: admin
+                  password: admin
+                  
+   All users, patient diary and patient reports are stored in separate XML files.
+                  
+           
            
