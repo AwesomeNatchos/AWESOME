@@ -14,7 +14,7 @@ public class ModifyPatient {
         System.out.println("Please enter address of Patient");
         String address = scan.nextLine();
         // creat a new patient and update it to the user
-        allpatients.set(allpatients.indexOf(patient), new Patient(patient.getFirstName(),patient.getLastName(), address, age, phoneNumber, patient.getSex()));
+        allpatients.set(allpatients.indexOf(patient), new Patient(patient.getFirstName(),patient.getLastName(), address, age, phoneNumber)); //, patient.getSex()
     }
 
     private static int readPhoneNumber(){
@@ -45,7 +45,7 @@ public class ModifyPatient {
         } return age;
     }
 
-    private static Patient findPatientIn(ArrayList<Patient>allPatients){
+    private static Patient findPatientIn(ArrayList<Patient> allPatients){
         Patient patient = new Patient();
         String name = "";
         while(name.isEmpty()){

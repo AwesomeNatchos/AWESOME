@@ -1,7 +1,5 @@
 package com.awesome;
 
-import com.awesome.Sources.BloodType;
-
 public class Users {
     String firstName;
     String lastName;

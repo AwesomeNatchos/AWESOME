@@ -28,9 +28,45 @@ public class PatientReport {
         this.medicalReport = medicalReport;
     }
 
+    public static ArrayList<PatientReport> readMedicalReport(String filepath){
+            ArrayList<PatientReport> allMedicalReports = new ArrayList<>();
+            PatientReport medicalReports;
+
+            try{
+                DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+                DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+                Document document = documentBuilder.parse(new FileInputStream(filepath));
+
+                // It gets the list of all medicalReport nodes
+                NodeList root = document.getElementsByTagName("entry");
+
+                for(int i=0; i< root.getLength(); i++){
+                    Node node = root.item(i);           // get all the child nodes from this node (will get a node list)
+                    if(node.getNodeType() == Node.ELEMENT_NODE){
+                        Element element = (Element) node; // Here just casting the node into Element, because node does not have
+
+
+                        //try
+                        String date = (element.getElementsByTagName("date").item(0).getTextContent());
+                        String entry = (element.getElementsByTagName("report").item(0).getTextContent());
+
+                        System.out.println(i+1);
+                        System.out.println("Entry date " + date);
+                        System.out.println("    " + entry);
+
+                        medicalReports = new PatientReport(date,entry);
+                        allMedicalReports.add(medicalReports);
+
+                    }
+                }
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+            return allMedicalReports;
+    }
+
 
     public static void saveMedicalReportToXml(ArrayList<PatientReport>report, String filepath) {
-
         try {
             Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
 
@@ -42,7 +78,7 @@ public class PatientReport {
                 rootElement.appendChild(entryElement);
 
                 createChildElement(document,entryElement,"date", entries.getMedialEntryDate());
-                createChildElement(document,entryElement,"entry", entries.getMedicalReport());
+                createChildElement(document,entryElement,"report", entries.getMedicalReport());
 
             }
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -106,7 +142,6 @@ public class PatientReport {
         System.out.println("You have now successfully added a new entry to your diary");
 
         return report;
-
     };
 
     private static void createChildElement(Document document, Element parent, String tagName, String value) {

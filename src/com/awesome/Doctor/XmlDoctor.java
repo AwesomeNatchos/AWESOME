@@ -59,6 +59,7 @@ public class XmlDoctor {
 
     public static ArrayList<Doctor> readDoctortXml(String filepath){
         ArrayList<Doctor> allDoctors = new ArrayList<>();
+        Doctor doctor;
         try{
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
@@ -88,6 +89,9 @@ public class XmlDoctor {
                     System.out.println("Phone Number: " + phoneNumber);
                     System.out.println("Doctor ID: " + doctorID);
                     System.out.println(" ");
+
+                    doctor = new Doctor(firstname,lastname,address,age,doctorID,phoneNumber);
+                    allDoctors.add(doctor);
                 }
             }
         } catch (Exception e){

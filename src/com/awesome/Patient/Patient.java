@@ -1,34 +1,32 @@
 package com.awesome.Patient;
 
-import com.awesome.Sources.BloodType;
+import com.awesome.RunMain.BloodType;
 import com.awesome.Users;
 
-import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Patient extends Users {
     String address;
     int phoneNumber;
     //BloodType bloodType;
-    static boolean sex; //true = female;
+    //static boolean sex; //true = female;
 
     public static Scanner scan = new Scanner(System.in);
 
     //Main Constructor
-    public Patient(String firstName, String lastName, String address, int age, int phoneNumber, boolean sex) {
+    public Patient(String firstName, String lastName, String address, int age, int phoneNumber) {
         super(firstName, lastName, age);
         this.address = address;
         //this.bloodType = bloodType;
         this.phoneNumber = phoneNumber;
-        this.sex = sex;
+        //this.sex = sex;
     }
 
     public static Patient creat_new_Patient(){
 
         String firstName, lastName, address, userBloodType;
         int age, phoneNumber;
-        Boolean sex = null;
+        //Boolean sex = null;
         BloodType bloodType = BloodType.A;
 
         System.out.print("First name: ");
@@ -46,6 +44,7 @@ public class Patient extends Users {
 
         //bloodType = bloodType.set_bloodType(userBloodType);
         //bloodType = getBloodType_withInput(userBloodType);
+        /*
         System.out.println("Patients sex; 1(female) 2)male");
         int userSex = scan.nextInt();
         sex = get_Sex(userSex);
@@ -56,14 +55,15 @@ public class Patient extends Users {
         else if(userSex == 2){
             sex = false;
         }
+        */
 
-        Patient patient = new Patient(firstName, lastName, address, age , phoneNumber, sex);
+        Patient patient = new Patient(firstName, lastName, address, age , phoneNumber);
         return patient;
 
     }
 
     public Patient(){
-        this("Zimone", "Rolex", "Horwath street 5", 45, 77755522, true);
+        this("Zimone", "Rolex", "Horwath street 5", 45, 77755522);
     }
 
     public String getAddress() {
@@ -82,7 +82,7 @@ public class Patient extends Users {
         this.phoneNumber = phoneNumber;
     }
 
-
+/*
     public boolean getSex() {
         return sex;
     }
@@ -99,5 +99,5 @@ public class Patient extends Users {
     public void set_Sex(boolean sex) {
         this.sex = sex;
     }
-
+*/
 }

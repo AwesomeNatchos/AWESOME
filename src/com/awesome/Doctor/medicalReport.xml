@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <medicalReport>
     <entry>
-        <date>Jun 22</date>
-        <entry>The patient had sever coughting</entry>
+        <date>12.05</date>
+        <report>The patient came to me and wanted more medications</report>
+    </entry>
+    <entry>
+        <date>20.4</date>
+        <report>Took CAT-scan of the patient. Show slight atheriosclerotic plaque in RCC.</report>
     </entry>
 </medicalReport>

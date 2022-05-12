@@ -2,12 +2,9 @@ package com.awesome.Doctor;
 
 import com.awesome.Patient.Diary;
 import com.awesome.Patient.XmlPatient;
-
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
 import static com.awesome.Patient.Diary.*;
 
 public class MainMenuDoctor {
@@ -31,13 +28,14 @@ public class MainMenuDoctor {
             System.out.println("1) See all Patients ");
             System.out.println("2) Read Patient Diary ");
             System.out.println("3) Write patient Medical report");
+            System.out.println("4) Read patient Medical report");
             System.out.println();
             System.out.println("0) Exit");
             System.out.println("Please enter your option: ");
             try {
                 choice = scan.nextInt();
                 scan.nextLine();
-                if (choice < 0 || choice > 3) {
+                if (choice < 0 || choice > 4) {
                     System.out.println("Invalid option! \nPlease try again");
                 }
 
@@ -60,14 +58,16 @@ public class MainMenuDoctor {
                     allReports.add(PatientReport.writeMedicalReport());
                     PatientReport.saveMedicalReportToXml(allReports,"src/com/awesome/Doctor/medicalReport.xml");
                     break;
+                case 4:
+                    System.out.println("Read patient reports");
+                    PatientReport.readMedicalReport("src/com/awesome/Doctor/medicalReport.xml");
+                    break;
                 case 0:
                     System.out.println("Goodbye!");
                     doctorMainMenu = false;
                     break;
             }
-
             System.out.println("");
-
         }
     }
 

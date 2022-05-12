@@ -62,6 +62,7 @@ public class XmlPatient {
 
     public static ArrayList<Patient> readPatientXml(String filepath){
         ArrayList<Patient> allPatients = new ArrayList<>();
+        Patient patient;
         try{
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
@@ -88,13 +89,16 @@ public class XmlPatient {
                     System.out.println("Age:  " + age);
                     System.out.println("Phone Number: " + phoneNumber);
                     System.out.println(" ");
+
+                    //creat a new patient and saves them to ArrayList allPatients
+                    patient = new Patient(firstname,lastname,address,age,phoneNumber);
+                    allPatients.add(patient);
                 }
             }
         } catch (Exception e){
             e.printStackTrace();
         }
         return allPatients;
-
     }
 
     private static void createChildElement(Document document, Element parent, String tagName, String value) {

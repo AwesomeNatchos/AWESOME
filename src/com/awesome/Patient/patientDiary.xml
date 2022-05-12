@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <patientDiary>
     <entry>
-        <date>March 20</date>
-        <message>Today I had a stiff neck and a soar throat</message>
+        <date>12 oct</date>
+        <message>can you fly?</message>
+    </entry>
+    <entry>
+        <date>1. May</date>
+        <message>Is there sun outside?</message>
     </entry>
 </patientDiary>

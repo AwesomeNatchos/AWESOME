@@ -8,6 +8,16 @@
         <address>Szegeti 8B</address>
         <age>26</age>
         <phoneNumber>234564256</phoneNumber>
+        <doctorID>111</doctorID>
+    </doctor>
+    <doctor>
+        <name>
+            <first>Zsolt</first>
+            <last>Gabor</last>
+        </name>
+        <address>Szegeti 12</address>
+        <age>56</age>
+        <phoneNumber>234</phoneNumber>
         <doctorID>222</doctorID>
     </doctor>
 </users>

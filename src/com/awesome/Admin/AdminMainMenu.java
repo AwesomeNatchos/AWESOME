@@ -16,11 +16,13 @@ public class AdminMainMenu {
         private static Scanner scan = new Scanner(System.in);
 
         public static void MainMenu() {
-
+            // remeber to save the patient list into the arraylist from xml file firts
             //Patient
-            ArrayList<Patient> allPatiens = new ArrayList<>();
+            //ArrayList<Patient> allPatiens = new ArrayList<>();
+
             String xmlPatientpath = "src/com/awesome/Patient/patient.xml";
 
+            ArrayList<Patient> allPatiens = XmlPatient.readPatientXml("src/com/awesome/Patient/patient.xml");
             //Doctor
             ArrayList<Doctor> allDoctors = new ArrayList<>();
             String xmlDoctorPath = "src/com/awesome/Doctor/doctor.xml";
