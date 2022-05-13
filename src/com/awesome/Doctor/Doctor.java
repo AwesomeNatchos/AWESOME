@@ -152,19 +152,18 @@ public class Doctor extends Users {
     }
 
     private static Doctor findDoctorIn(ArrayList<Doctor>allDoctors){
-        Doctor doctor = new Doctor();
         String name = "";
         while(name.isEmpty()){
             System.out.println("Enter last name of Doctor: ");
             name = scan.nextLine();
-            for(Doctor doctors : allDoctors){
-                if(doctors.getLastName().equals(name)){
+            for(Doctor doctor : allDoctors){
+                if(doctor.getLastName().endsWith(name)){
                     return doctor;
                 }
             }
             name = "";
         }
-        return doctor;
+        return new Doctor();
     }
 
     public int getDoctorID() {

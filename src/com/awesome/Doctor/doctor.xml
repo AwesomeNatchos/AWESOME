@@ -15,9 +15,29 @@
             <first>Zsolt</first>
             <last>Gabor</last>
         </name>
-        <address>Szegeti 12</address>
-        <age>56</age>
-        <phoneNumber>234</phoneNumber>
-        <doctorID>222</doctorID>
+        <address>dfg</address>
+        <age>12</age>
+        <phoneNumber>345</phoneNumber>
+        <doctorID>234</doctorID>
+    </doctor>
+    <doctor>
+        <name>
+            <first>Natcha</first>
+            <last>Uthaug</last>
+        </name>
+        <address>Akerveien 4a</address>
+        <age>30</age>
+        <phoneNumber>98766</phoneNumber>
+        <doctorID>123</doctorID>
+    </doctor>
+    <doctor>
+        <name>
+            <first>Silvia</first>
+            <last>Uttne</last>
+        </name>
+        <address>sd</address>
+        <age>22</age>
+        <phoneNumber>3456</phoneNumber>
+        <doctorID>2345</doctorID>
     </doctor>
 </users>

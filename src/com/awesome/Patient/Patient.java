@@ -1,6 +1,6 @@
 package com.awesome.Patient;
 
-import com.awesome.RunMain.BloodType;
+//import com.awesome.RunMain.BloodType;
 import com.awesome.Users;
 
 import java.util.Scanner;
@@ -27,7 +27,7 @@ public class Patient extends Users {
         String firstName, lastName, address, userBloodType;
         int age, phoneNumber;
         //Boolean sex = null;
-        BloodType bloodType = BloodType.A;
+        //BloodType bloodType = BloodType.A;
 
         System.out.print("First name: ");
         firstName = scan.nextLine();

@@ -25,7 +25,7 @@ public class AdminMainMenu {
             //Doctor
             String xmlDoctorPath = "src/com/awesome/Doctor/doctor.xml";
             ArrayList<Doctor> allDoctors = new ArrayList<>();
-            allDoctors = XmlDoctor.readDoctortXml(xmlDoctorPath);
+            allDoctors = XmlDoctor.justReadDoctortXml(xmlDoctorPath);
 
             boolean mainMenu = true;
             int choice = -1;
@@ -89,14 +89,16 @@ public class AdminMainMenu {
                         break;
                     case 6:
                         System.out.println("Read all doctors");
-                        XmlDoctor.readDoctortXml(xmlDoctorPath);
+                        allDoctors = XmlDoctor.readDoctortXml(xmlDoctorPath);
                         break;
                     case 7:
                         System.out.println("Edit Doctor");
+                        allDoctors = XmlDoctor.justReadDoctortXml(xmlDoctorPath);
                         Doctor.modifyDoctor(allDoctors);
                         break;
                     case 8:
                         System.out.println("Delete doctor");
+                        allDoctors = XmlDoctor.justReadDoctortXml(xmlDoctorPath);
                         Doctor.removeDoctor(allDoctors);
                         break;
                     case 0:

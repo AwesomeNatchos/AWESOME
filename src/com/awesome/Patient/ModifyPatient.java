@@ -24,7 +24,7 @@ public class ModifyPatient {
         while(phoneNumber == -1){
             try{
                 System.out.println("Enter patient phone number(can not start with 0): ");
-                phoneNumber = scan.nextInt();
+                phoneNumber = Integer.parseInt(scan.nextLine());
             } catch (InputMismatchException e){
                 System.out.println("Please enter a valid phone number. \nCan not start with 0");
                 scan.nextLine();

@@ -101,6 +101,41 @@ public class XmlDoctor {
 
     }
 
+    public static ArrayList<Doctor> justReadDoctortXml(String filepath){
+        ArrayList<Doctor> allDoctors = new ArrayList<>();
+        Doctor doctor;
+        try{
+            DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+            Document document = documentBuilder.parse(new FileInputStream(filepath));
+
+            // It gets the list of all doctor nodes
+            NodeList root = document.getElementsByTagName("doctor");
+
+            for(int i=0; i< root.getLength(); i++){
+                Node node = root.item(i);           // get all the child nodes from this node (will get a node list)
+                if(node.getNodeType() == Node.ELEMENT_NODE){
+                    Element element = (Element) node; // Here just casting the node into Element, because node does not have
+
+                    String firstname = ((Element) element.getElementsByTagName("name").item(0)).getElementsByTagName("first").item(0).getTextContent();
+                    String lastname = ((Element) element.getElementsByTagName("name").item(0)).getElementsByTagName("last").item(0).getTextContent();
+                    String address = element.getElementsByTagName("address").item(0).getTextContent();
+                    int age = Integer.parseInt(element.getElementsByTagName("age").item(0).getTextContent());
+                    int phoneNumber = Integer.parseInt(element.getElementsByTagName("phoneNumber").item(0).getTextContent());
+                    int doctorID = Integer.parseInt(element.getElementsByTagName("doctorID").item(0).getTextContent());
+
+
+                    doctor = new Doctor(firstname,lastname,address,age,doctorID,phoneNumber);
+                    allDoctors.add(doctor);
+                }
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return allDoctors;
+
+    }
+
     private static void createChildElement(Document document, Element parent, String tagName, String value) {
         Element element = document.createElement(tagName);
         element.setTextContent(value);
