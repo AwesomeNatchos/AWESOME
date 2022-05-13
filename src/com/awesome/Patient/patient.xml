@@ -11,11 +11,11 @@
     </patient>
     <patient>
         <name>
-            <first>Mari</first>
-            <last>Lenninger</last>
+            <first>Sarah</first>
+            <last>Hertz</last>
         </name>
-        <age>60</age>
-        <phoneNumber>2333</phoneNumber>
-        <address>Alkotmany 32</address>
+        <age>67</age>
+        <phoneNumber>98765</phoneNumber>
+        <address>Könningers roat 15</address>
     </patient>
 </users>

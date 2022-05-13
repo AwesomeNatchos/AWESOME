@@ -50,7 +50,7 @@ public class AdminMainMenu {
                 try{
                     choice = scan.nextInt();
                     scan.nextLine();
-                    if(choice < 0 || choice > 7){
+                    if(choice < 0 || choice > 8){
                         System.out.println("Invalid option! \nPlease try again");
                     }
 
