@@ -57,11 +57,11 @@ public class Main {
             System.out.println("Password: ");
             logInUserPassword = scan.nextLine();
 
-            if (logInUserName.equals(patientUserName) || logInUserPassword.equals(patientUserPassword)) {
+            if (logInUserName.equals(patientUserName) && logInUserPassword.equals(patientUserPassword)) {
                 PatientMenu.Main_menu();
-            } else if (logInUserName.equals(doctorUserName) || logInUserPassword.equals(doctorUserPassword)) {
+            } else if (logInUserName.equals(doctorUserName) && logInUserPassword.equals(doctorUserPassword)) {
                 MainMenuDoctor.Main_menu();
-            } else if (logInUserName.equals(adminUserName) || logInUserPassword.equals(adminUserPassword)) {
+            } else if (logInUserName.equals(adminUserName) && logInUserPassword.equals(adminUserPassword)) {
                 AdminMainMenu.MainMenu();
             } else {
                 System.out.println("UserName or Password incorrect!");

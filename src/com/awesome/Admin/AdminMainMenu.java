@@ -74,6 +74,7 @@ public class AdminMainMenu {
                         System.out.println("Edit patient");
                         ModifyPatient.modifyPatient(allPatiens);
                         XmlPatient.WriteXmlPatient(allPatiens, xmlPatientpath);
+                        System.out.println("You have now successfully created a new patient");
                         break;
                     case 4:
                         System.out.println("Delete patient");

@@ -14,6 +14,7 @@ public class ModifyPatient {
         int phoneNumber = readPhoneNumber();
         System.out.println("Please enter address of Patient");
         String address = scan.nextLine();
+        System.out.println("");
         // creat a new patient and update it to the user
         allpatients.set(allpatients.indexOf(patient), new Patient(patient.getFirstName(),patient.getLastName(), address, age, phoneNumber)); //, patient.getSex()
     }
